@@ -13,7 +13,7 @@ export const _Card = ({text}) => {
             <div className="card">
             <div className="site-card-border-less-wrapper">
                 <Card title="Card title" bordered={false} style={{ width: 300 }}>
-                    <p>{text}</p>
+                    <p>{"Почему здесь не работает способ описанный на вебнаре? При попытке использовать text здесь пропадает поле при отображении на странице"}</p>
                     <p>Card content</p>
                     <p>Card content</p>
                 </Card>
