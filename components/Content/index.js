@@ -6,9 +6,15 @@ import "./style.css";
 
 
 export const Info = () => {
+    const handleClick = () => {
+        console.log('Есть контакт');
+    }
     return (
         <div className="info">
-            <Button type="primary">Click me</Button>
+            <Button className="btn" type="primary" onClick={handleClick
+            }>
+                Click me
+                </Button>
         </div>
     );
 };

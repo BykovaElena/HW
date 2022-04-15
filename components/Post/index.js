@@ -8,6 +8,8 @@ import { _Card } from "../PostList";
 export const Post = () => {
     
     const dataJson = JSON.strigify(data);
+    con
+
     
     
     return (
