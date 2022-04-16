@@ -1,3 +1,7 @@
+const onResponce = (res) => {
+    return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
+}
+
 class Api {
     constructor({ baseUrl, token }) {
         this._baseUrl = baseUrl;
@@ -8,9 +12,14 @@ class Api {
             headers: {
                 authorization: this._token,
             }
-        }).then((res) => {
-            return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
-        })
+        }).then(onResponce)
+    }
+    getUserInfo() {
+        return fetch(`${this._baseUrl}/users/me`, {
+            headers: {
+                authorization: this._token,
+            }
+        }).then(onResponce)
     }
 }
 

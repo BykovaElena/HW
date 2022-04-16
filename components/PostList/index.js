@@ -5,7 +5,7 @@ import { postData } from "../../posts";
 
 
 
-export const _Card = ({text}) => {
+export const _Card = () => {
    
     return (
 
@@ -15,7 +15,7 @@ export const _Card = ({text}) => {
                 {
                     postData.map((card) => {
                       return (
-                          <Card title={card.title} bordered={false} style={{ width: 300 }}>
+                          <Card key = {card._id} title={card.title} bordered={false} style={{ width: 300 }}>
                               <img src={card.image} alt='not this time' className="card__image" /> 
                               <p>{card.text}</p>
                               <p>{card.likes}</p>

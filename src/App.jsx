@@ -5,6 +5,7 @@ const { Header, Footer,  Content } = Layout;
 import { _Card } from "../components/PostList";
 import { Info } from "../components/Content";
 import Api from '../utils/Api.js';
+//import { postData } from "../posts";
 
 
 
@@ -12,17 +13,21 @@ import Api from '../utils/Api.js';
 
 
 export const App = () => {
+    const [posts, setPosts] = useState ([]);
     useEffect(() => {
-        Api.getPostList()
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
-    })
+        Promise.all([Api.getPostList(), Api.getUserInfo()])
+            .then(([productData, userData]) => {
+                setPosts(productData);
+                setCurrentUser(userData)
+            })
+    }, [])
+    
     return (
         <>
             <Layout>
                 <Header>Header</Header>
                 <Content>
-                    <_Card/>
+                    <_Card postData  = {posts} />
                    
                     <Info/>
                 </Content>
