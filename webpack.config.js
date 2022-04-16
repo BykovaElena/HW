@@ -7,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"), //путь куда будет собираться наш проект
     filename: "main.js", // имя нашего бандла
   },
+  
   devServer: {
     static: path.resolve(__dirname, "./dist"), // путь, куда "смотрит" режим разработчика
     compress: true, // это ускорит загрузку в режиме разработки
