@@ -2,9 +2,12 @@
 import React, { useState, useEffect } from "react"
 import { Layout } from 'antd';
 const { Header, Footer,  Content } = Layout;
-import { _Card } from "../components/PostList";
+import { PostList } from "../components/PostList";
 import { Info } from "../components/Content";
-import Api from '../utils/Api.js';
+import { postData } from "../posts";
+
+
+//import Api from '../utils/Api.js';
 //import { postData } from "../posts";
 
 
@@ -13,22 +16,15 @@ import Api from '../utils/Api.js';
 
 
 export const App = () => {
-    const [posts, setPosts] = useState ([]);
-    useEffect(() => {
-        Promise.all([Api.getPostList(), Api.getUserInfo()])
-            .then(([productData, userData]) => {
-                setPosts(productData);
-                setCurrentUser(userData)
-            })
-    }, [])
+    const [posts, setPosts] = useState(postData)
     
     return (
         <>
             <Layout>
                 <Header>Header</Header>
                 <Content>
-                    <_Card postData  = {posts} />
-                   
+                    <PostList postData={posts}/>
+                    
                     <Info/>
                 </Content>
                 <Footer>Footer</Footer>

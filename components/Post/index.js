@@ -1,23 +1,25 @@
 import React from "react";
+import { Card } from 'antd';
 
 import "./style.css";
 
 
-import {_Card } from "../PostList";
+
 
 export const Post = () => {
-    
-    
-    
+  
 
-    
-    
     return (
         
-         <div className="card">
-            <_Card />
-         </div> 
-       
+
+        <div className="site-card-border-less-wrapper">
+            <Card title="Card title" bordered={false} style={{ width: 300 }}>
+                <p>Card content</p>
+                <p>Card content</p>
+                <p>Card content</p>
+            </Card>
+        </div>
+        
     );
 
 };
