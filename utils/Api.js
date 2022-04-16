@@ -1,7 +1,7 @@
 class Api {
     constructor({ baseUrl, token }) {
         this._baseUrl = baseUrl;
-        this._token = `Bearer${token}`;
+        this._token = `Bearer ${token}`;
     }
     getPostList() {
         return fetch(`${this._baseUrl}/posts`, {
