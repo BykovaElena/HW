@@ -4,17 +4,17 @@ import React, { useState, useEffect } from "react"
 import {Post} from '../Post'
 import "./style.css";
 
-import api from "../../utils/Api";
+//import api from "../../utils/Api";
 
 
 
-export const PostList = ({postData}) => {
+export const PostList = ({ postData, currentUser}) => {
   
     return (
 <>
 <div className="card">
 {
-          postData.map(posts => <Post key={posts._id} {...posts} />) 
+            postData.map(dataItem => <Post key={dataItem._id} {...dataItem} currentUser={currentUser} />) 
 }
                          
         
