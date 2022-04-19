@@ -1,37 +1,31 @@
 import React from "react";
 import { Card } from 'antd';
-import { postData } from "../../posts";
+//import { postData } from "../../posts";
 import "./style.css";
-import { Grid } from "@mui/material";
 
 
 
 
-export const Post = () => {
-  
+
+export const Post = ({ title, image, text, created_at, updated_at}) => {
+    
 
     return (
        
         
         
         <div className="site-card-border-less-wrapper">
-            
-            {
-                postData.map (card =>{
-                    return (
-                          
-                        <Card title={card.title} key = {card._id} bordered={false} style={{ width: 300 }}>
-                            <img src={card.image} alt='not this time' className="card__image" />
-                            <p>{card.text}</p>
-                            <p>{card.likes}</p>
-                            <p>{card.isPublished}</p>
-                            
-                        </Card> 
-                        
-                    )
-                })
-            }
-            
+            <Card title = {title} bordered={false} style={{ width: 300 }}>
+                <img src={image} alt='not this time' className="card__image" />
+                <p>{text} </p>
+                <p>{created_at}</p>
+                <p>{updated_at}</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </Card>
         </div>
         
     );

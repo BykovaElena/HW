@@ -7,23 +7,22 @@ import { Info } from "../components/Content";
 import { postData } from "../posts";
 
 
-//import Api from '../utils/Api.js';
-//import { postData } from "../posts";
 
-
+import api from "../utils/Api.js";
+import { Post } from "../components/Post";
 
 
 
 
 export const App = () => {
-    const [posts, setPosts] = useState(postData)
+const [posts, setPosts] = useState (postData) 
     
     return (
         <>
             <Layout>
                 <Header>Header</Header>
                 <Content>
-                    <PostList postData={posts}/>
+                <PostList postData = {posts} />
                     
                     <Info/>
                 </Content>
