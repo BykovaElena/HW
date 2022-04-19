@@ -1,6 +1,6 @@
 export const postData = [
         {
-            "image": "http://dummyimage.com/400x200.png/5fa2dd/ffffff",
+        "image": "http://dummyimage.com/400x200.png/5fa2dd/ffffff",
             "likes": [],
             "comments": [],
             "tags": [
