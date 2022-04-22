@@ -14,6 +14,14 @@ class Api {
             }
         }).then(onResponce)
     }
+    changeLikeStatust(postId, isLike) {
+        return fetch(`${this._baseUrl}/posts/likes/${postId}`, {
+            method: isLike ? "DELETE" : "PUT",
+            headers: {
+                authorization: this._token,
+            }
+        }).then(onResponce)
+    }
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: {
@@ -21,6 +29,7 @@ class Api {
             }
         }).then(onResponce)
     }
+    
 }
 
 const config = {

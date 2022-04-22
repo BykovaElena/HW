@@ -16,31 +16,41 @@ import api from "../utils/Api.js";
 
 
 export const App = () => {
-const [posts, setPosts] = useState ([]) 
+    const [posts, setPosts] = useState([]) 
     const [currentUser, setCurrentUser] = useState({})
+    
 
 useEffect (() => {
-    // api.getPostList ()
-    // .then (data => console.log(data))
-    //     .catch(err => console.log(err))
-    // api.getUserInfo()
-    //     .then(data => console.log(data))
-    //     .catch(err => console.log(err))
+    
 
     Promise.all([api.getPostList(), api.getUserInfo() ])
-    .then(([postData, userData]) =>{
-        setPosts(postData)
+    .then(([firstPost, userData]) =>{
+        setPosts(firstPost)
+        
         setCurrentUser(userData)
 
     } )
-}, [])
+},[])
+
+function handlePostLike ({_id, likes}) {
+    const isLiked = likes.some(id => id === currentUser._id);
+
+    api.changeLikeStatust(_id, isLiked)
+    .then((newPost) => {
+        const newPostsState = posts.map(c => {
+
+           return  c._id === newPost._id ? newPost : c 
+        })
+        setPosts(newPostsState) 
+    })
+}
     
     return (
         <>
             <Layout>
-                <Header>Header</Header>
+                <Header >Header</Header>
                 <Content>
-                    <PostList postData={posts} currentUser={currentUser} />
+                    <PostList  postData={posts} currentUser={currentUser} onPostLike={handlePostLike}/>
                     
                     <Info/>
                 </Content>

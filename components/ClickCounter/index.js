@@ -1,11 +1,9 @@
 import React from "react";
-import { Button } from 'antd';
-import "./style.css";
 
 
-
-
-export const Info = () => {
+export const clickCounter = () => {
+    const [count, setCount] = useState(0);
+    
     const handleClick = () => {
         console.log('Есть контакт');
     }
@@ -13,7 +11,7 @@ export const Info = () => {
         <div className="info">
             <Button className="btn" type="primary" onClick={handleClick}>
                 Click me
-                </Button>
+            </Button>
         </div>
     );
 };

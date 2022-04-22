@@ -8,13 +8,13 @@ import "./style.css";
 
 
 
-export const PostList = ({ postData, currentUser}) => {
+export const PostList = ({ postData, currentUser, onPostLike }) => {
   
     return (
 <>
 <div className="card">
 {
-            postData.map(dataItem => <Post key={dataItem._id} {...dataItem} currentUser={currentUser} />) 
+            postData.map(dataItem => <Post key={dataItem._id} {...dataItem}  currentUser={currentUser} onPostLike={onPostLike} />) 
 }
                          
         

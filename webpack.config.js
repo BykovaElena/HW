@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"), //путь куда будет собираться наш проект
     filename: "main.js", // имя нашего бандла
   },
- 
+ devtool: "source-map",
   
   devServer: {
     static: path.resolve(__dirname, "./dist"), // путь, куда "смотрит" режим разработчика
